@@ -1,0 +1,46 @@
+<!-- transaction.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Facility Locator - Transaction</title>
+</head>
+<body>
+
+<!-- Display user details -->
+<h2>User Details:</h2>
+<p><strong>Email:</strong> {{ instance1.email }}</p>
+<p><strong>Username:</strong> {{ instance1.username }}</p>
+
+<!-- Add other user details here -->
+
+<!-- Display product details -->
+<h2>Product Details:</h2>
+<p><strong>Model:</strong> {{ instance.model }}</p>
+<p><strong>Manufacturer:</strong> {{ instance.manufacturer }}</p>
+<p><strong>Product Type:</strong> {{ instance.product_type }}</p>
+<p><strong>Condition:</strong> {{ instance.condition }}</p>
+
+<!-- Add other product details here -->
+
+<form id="transactionForm" action="{% url 'base:thankyou' %}" method="post">
+    {% csrf_token %}
+
+    <!-- Your transaction form fields go here -->
+    <!-- For example, you might have fields for item details, quantity, etc. -->
+
+    <!-- Input field to capture the earned coins -->
+    <label for="earnedCoins">Earned Coins:</label>
+    <input type="number" id="earnedCoins" name="earned_coins" required>
+
+    <!-- Input field to capture other transaction details -->
+    <!-- Add your other form fields here -->
+
+    <!-- Submit button -->
+    <button type="submit">Complete Transaction</button>
+</form>
+
+</body>
+</html>
